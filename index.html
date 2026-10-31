@@ -49,6 +49,41 @@
       font-size: 16px;
     }
 
+    .language-switcher {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 20px 0 14px;
+    }
+
+    .language-button {
+      min-height: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      cursor: pointer;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.2;
+      padding: 9px 14px;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .language-button:hover,
+    .language-button:focus-visible {
+      background: rgba(255, 255, 255, 0.22);
+      outline: 2px solid #ffffff;
+      outline-offset: 2px;
+    }
+
+    .language-button.is-active {
+      background: #ffffff;
+      border-color: #ffffff;
+      color: var(--navy);
+    }
+
     main {
       max-width: 800px;
       margin: 35px auto;
@@ -153,6 +188,16 @@
         font-size: 31px;
       }
 
+      .language-switcher {
+        margin-top: 18px;
+      }
+
+      .language-button {
+        flex: 1 1 0;
+        max-width: 155px;
+        padding-inline: 10px;
+      }
+
       main {
         margin: 20px auto;
         padding: 0 14px;
@@ -173,100 +218,71 @@
 <body>
 
   <header>
-    <h1>Seçiver Destek</h1>
-    <p>Kararsız kalma, Seçiver!</p>
+    <h1 data-i18n="supportTitle">Seçiver Destek</h1>
+    <div class="language-switcher" role="group" aria-label="Dil seçimi" data-i18n-aria-label="languageSelector">
+      <button class="language-button" type="button" data-language="tr" aria-pressed="true">🇹🇷 Türkçe</button>
+      <button class="language-button" type="button" data-language="en" aria-pressed="false">🇬🇧 English</button>
+    </div>
+    <p data-i18n="tagline">Kararsız kalma, Seçiver!</p>
   </header>
 
   <main>
 
     <section>
-      <h2>Hoş Geldiniz 👋</h2>
+      <h2 data-i18n="welcomeTitle">Hoş Geldiniz 👋</h2>
 
-      <p>
-        Seçiver ile ilgili sorularınız, önerileriniz ve
-        karşılaştığınız sorunlar için buradayız.
-      </p>
+      <p data-i18n="welcomeText">Seçiver ile ilgili sorularınız, önerileriniz ve karşılaştığınız sorunlar için buradayız.</p>
 
-      <p>
-        Seçiver; yemek, film, gezi, oyun ve daha birçok
-        konuda arkadaşlarınızla kolayca karar vermenizi
-        sağlayan eğlenceli bir karar çarkı uygulamasıdır.
-      </p>
+      <p data-i18n="aboutText">Seçiver; yemek, film, gezi, oyun ve daha birçok konuda arkadaşlarınızla kolayca karar vermenizi sağlayan eğlenceli bir karar çarkı uygulamasıdır.</p>
     </section>
 
     <section>
-      <h2>Sıkça Sorulan Sorular</h2>
+      <h2 data-i18n="faqTitle">Sıkça Sorulan Sorular</h2>
 
       <details>
-        <summary>Seçiver nasıl kullanılır?</summary>
-        <p>
-          Öncelikle bir kategori seçin. Katılımcıları ve
-          fikirlerini ekleyin. Ardından çarkı çevirerek
-          rastgele bir karar oluşturun.
-        </p>
+        <summary data-i18n="faqHowQuestion">Seçiver nasıl kullanılır?</summary>
+        <p data-i18n="faqHowAnswer">Öncelikle bir kategori seçin. Katılımcıları ve fikirlerini ekleyin. Ardından çarkı çevirerek rastgele bir karar oluşturun.</p>
       </details>
 
       <details>
-        <summary>Kaç kişiyle kullanabilirim?</summary>
-        <p>
-          Seçiver, 2 ile 10 kişi arasında grup kararları
-          oluşturmanıza olanak tanır.
-        </p>
+        <summary data-i18n="faqPeopleQuestion">Kaç kişiyle kullanabilirim?</summary>
+        <p data-i18n="faqPeopleAnswer">Seçiver, 2 ile 10 kişi arasında grup kararları oluşturmanıza olanak tanır.</p>
       </details>
 
       <details>
-        <summary>Hesap oluşturmam gerekiyor mu?</summary>
-        <p>
-          Hayır. Seçiver hesap oluşturmadan kullanılabilir.
-        </p>
+        <summary data-i18n="faqAccountQuestion">Hesap oluşturmam gerekiyor mu?</summary>
+        <p data-i18n="faqAccountAnswer">Hayır. Seçiver hesap oluşturmadan kullanılabilir.</p>
       </details>
 
       <details>
-        <summary>Geçmiş kararlarım nerede saklanıyor?</summary>
-        <p>
-          Geçmiş kararlarınız cihazınızda saklanır.
-          Uygulamayı kaldırmanız durumunda bu kayıtlar
-          silinebilir.
-        </p>
+        <summary data-i18n="faqHistoryQuestion">Geçmiş kararlarım nerede saklanıyor?</summary>
+        <p data-i18n="faqHistoryAnswer">Geçmiş kararlarınız cihazınızda saklanır. Uygulamayı kaldırmanız durumunda bu kayıtlar silinebilir.</p>
       </details>
 
       <details>
-        <summary>Seçiver ücretsiz mi?</summary>
-        <p>
-          Evet. Seçiver ücretsiz kullanılabilir.
-          Uygulamada reklamlar gösterilebilir.
-        </p>
+        <summary data-i18n="faqFreeQuestion">Seçiver ücretsiz mi?</summary>
+        <p data-i18n="faqFreeAnswer">Evet. Seçiver ücretsiz kullanılabilir. Uygulamada reklamlar gösterilebilir.</p>
       </details>
 
       <details>
-        <summary>Çarkın sonucunu değiştirebilir miyim?</summary>
-        <p>
-          Evet. Çarkı yeniden çevirebilir veya istemediğiniz
-          seçenekleri eleyerek tekrar seçim yapabilirsiniz.
-        </p>
+        <summary data-i18n="faqResultQuestion">Çarkın sonucunu değiştirebilir miyim?</summary>
+        <p data-i18n="faqResultAnswer">Evet. Çarkı yeniden çevirebilir veya istemediğiniz seçenekleri eleyerek tekrar seçim yapabilirsiniz.</p>
       </details>
 
       <details>
-        <summary>Uygulama çalışmıyorsa ne yapmalıyım?</summary>
-        <p>
-          Öncelikle uygulamayı yeniden başlatın ve güncel
-          sürümü kullandığınızdan emin olun. Sorun devam
-          ederse aşağıdaki e-posta adresinden bize ulaşın.
-        </p>
+        <summary data-i18n="faqTroubleshootingQuestion">Uygulama çalışmıyorsa ne yapmalıyım?</summary>
+        <p data-i18n="faqTroubleshootingAnswer">Öncelikle uygulamayı yeniden başlatın ve güncel sürümü kullandığınızdan emin olun. Sorun devam ederse aşağıdaki e-posta adresinden bize ulaşın.</p>
       </details>
     </section>
 
     <section>
-      <h2>İletişim ve Destek</h2>
+      <h2 data-i18n="contactTitle">İletişim ve Destek</h2>
 
-      <p>
-        Sorularınız, önerileriniz ve hata bildirimleriniz
-        için bizimle iletişime geçebilirsiniz.
-      </p>
+      <p data-i18n="contactText">Sorularınız, önerileriniz ve hata bildirimleriniz için bizimle iletişime geçebilirsiniz.</p>
 
       <a class="contact-link"
          href="mailto:seciverapp@gmail.com">
-        <span>📧 Destek E-postası</span>
+        <span data-i18n="supportEmail">📧 Destek E-postası</span>
         <strong>seciverapp@gmail.com</strong>
       </a>
 
@@ -274,43 +290,181 @@
          href="https://www.instagram.com/seciver.app/"
          target="_blank"
          rel="noopener noreferrer">
-        <span>📸 Instagram</span>
+        <span data-i18n="instagram">📸 Instagram</span>
         <strong>@seciver.app</strong>
       </a>
     </section>
 
     <section>
-      <h2>Gizlilik Politikası</h2>
+      <h2 data-i18n="privacyTitle">Gizlilik Politikası</h2>
 
-      <p>
-        Seçiver'in veri saklama, gizlilik ve reklam
-        kullanımı hakkında bilgi almak için gizlilik
-        politikamızı inceleyebilirsiniz.
-      </p>
+      <p data-i18n="privacyText">Seçiver'in veri saklama, gizlilik ve reklam kullanımı hakkında bilgi almak için gizlilik politikamızı inceleyebilirsiniz.</p>
 
       <a href="https://mukem00.github.io/seciver-privacy/"
          target="_blank"
          rel="noopener noreferrer">
-        Gizlilik Politikasını Görüntüle →
+        <span data-i18n="privacyLink">Gizlilik Politikasını Görüntüle →</span>
       </a>
     </section>
 
   </main>
 
   <footer>
-    <p>© 2026 Seçiver. Tüm hakları saklıdır.</p>
+    <p data-i18n="copyright">© 2026 Seçiver. Tüm hakları saklıdır.</p>
     <p>
-      <a href="mailto:seciverapp@gmail.com">İletişim</a>
+      <a href="mailto:seciverapp@gmail.com" data-i18n="footerContact">İletişim</a>
       &nbsp;·&nbsp;
       <a href="https://www.instagram.com/seciver.app/"
          target="_blank"
-         rel="noopener noreferrer">Instagram</a>
+        rel="noopener noreferrer" data-i18n="footerInstagram">Instagram</a>
       &nbsp;·&nbsp;
       <a href="https://mukem00.github.io/seciver-privacy/">
-        Gizlilik Politikası
+        <span data-i18n="footerPrivacy">Gizlilik Politikası</span>
       </a>
     </p>
   </footer>
 
+  <script>
+    (() => {
+      const storageKey = 'seciver-support-language';
+      const translations = {
+        tr: {
+          pageTitle: 'Seçiver | Destek',
+          pageDescription: 'Seçiver mobil uygulaması resmi destek ve yardım sayfası.',
+          languageSelector: 'Dil seçimi',
+          supportTitle: 'Seçiver Destek',
+          tagline: 'Kararsız kalma, Seçiver!',
+          welcomeTitle: 'Hoş Geldiniz 👋',
+          welcomeText: 'Seçiver ile ilgili sorularınız, önerileriniz ve karşılaştığınız sorunlar için buradayız.',
+          aboutText: 'Seçiver; yemek, film, gezi, oyun ve daha birçok konuda arkadaşlarınızla kolayca karar vermenizi sağlayan eğlenceli bir karar çarkı uygulamasıdır.',
+          faqTitle: 'Sıkça Sorulan Sorular',
+          faqHowQuestion: 'Seçiver nasıl kullanılır?',
+          faqHowAnswer: 'Öncelikle bir kategori seçin. Katılımcıları ve fikirlerini ekleyin. Ardından çarkı çevirerek rastgele bir karar oluşturun.',
+          faqPeopleQuestion: 'Kaç kişiyle kullanabilirim?',
+          faqPeopleAnswer: 'Seçiver, 2 ile 10 kişi arasında grup kararları oluşturmanıza olanak tanır.',
+          faqAccountQuestion: 'Hesap oluşturmam gerekiyor mu?',
+          faqAccountAnswer: 'Hayır. Seçiver hesap oluşturmadan kullanılabilir.',
+          faqHistoryQuestion: 'Geçmiş kararlarım nerede saklanıyor?',
+          faqHistoryAnswer: 'Geçmiş kararlarınız cihazınızda saklanır. Uygulamayı kaldırmanız durumunda bu kayıtlar silinebilir.',
+          faqFreeQuestion: 'Seçiver ücretsiz mi?',
+          faqFreeAnswer: 'Evet. Seçiver ücretsiz kullanılabilir. Uygulamada reklamlar gösterilebilir.',
+          faqResultQuestion: 'Çarkın sonucunu değiştirebilir miyim?',
+          faqResultAnswer: 'Evet. Çarkı yeniden çevirebilir veya istemediğiniz seçenekleri eleyerek tekrar seçim yapabilirsiniz.',
+          faqTroubleshootingQuestion: 'Uygulama çalışmıyorsa ne yapmalıyım?',
+          faqTroubleshootingAnswer: 'Öncelikle uygulamayı yeniden başlatın ve güncel sürümü kullandığınızdan emin olun. Sorun devam ederse aşağıdaki e-posta adresinden bize ulaşın.',
+          contactTitle: 'İletişim ve Destek',
+          contactText: 'Sorularınız, önerileriniz ve hata bildirimleriniz için bizimle iletişime geçebilirsiniz.',
+          supportEmail: '📧 Destek E-postası',
+          instagram: '📸 Instagram',
+          privacyTitle: 'Gizlilik Politikası',
+          privacyText: "Seçiver'in veri saklama, gizlilik ve reklam kullanımı hakkında bilgi almak için gizlilik politikamızı inceleyebilirsiniz.",
+          privacyLink: 'Gizlilik Politikasını Görüntüle →',
+          copyright: '© 2026 Seçiver. Tüm hakları saklıdır.',
+          footerContact: 'İletişim',
+          footerInstagram: 'Instagram',
+          footerPrivacy: 'Gizlilik Politikası'
+        },
+        en: {
+          pageTitle: 'Seçiver | Support',
+          pageDescription: 'Official support and help page for the Seçiver mobile app.',
+          languageSelector: 'Language selector',
+          supportTitle: 'Seçiver Support',
+          tagline: "Can't decide? Let Seçiver choose!",
+          welcomeTitle: 'Welcome 👋',
+          welcomeText: 'We are here to help with your questions, suggestions, and any issues you encounter with Seçiver.',
+          aboutText: 'Seçiver is a fun decision wheel app that helps you and your friends decide what to eat, watch, play, where to go, and much more.',
+          faqTitle: 'Frequently Asked Questions',
+          faqHowQuestion: 'How do I use Seçiver?',
+          faqHowAnswer: 'First, choose a category. Add the participants and their ideas, then spin the wheel to make a random decision.',
+          faqPeopleQuestion: 'How many people can use it?',
+          faqPeopleAnswer: 'Seçiver lets you create group decisions for between 2 and 10 people.',
+          faqAccountQuestion: 'Do I need to create an account?',
+          faqAccountAnswer: 'No. You can use Seçiver without creating an account.',
+          faqHistoryQuestion: 'Where are my past decisions stored?',
+          faqHistoryAnswer: 'Your past decisions are stored on your device. These records may be deleted if you uninstall the app.',
+          faqFreeQuestion: 'Is Seçiver free?',
+          faqFreeAnswer: 'Yes. Seçiver can be used for free. The app may display ads.',
+          faqResultQuestion: 'Can I change the wheel result?',
+          faqResultAnswer: 'Yes. You can spin the wheel again or remove options you do not want before making another selection.',
+          faqTroubleshootingQuestion: 'What should I do if the app is not working?',
+          faqTroubleshootingAnswer: 'First, restart the app and make sure you are using the latest version. If the issue continues, contact us using the email address below.',
+          contactTitle: 'Contact and Support',
+          contactText: 'You can contact us with your questions, suggestions, and bug reports.',
+          supportEmail: '📧 Support Email',
+          instagram: '📸 Instagram',
+          privacyTitle: 'Privacy Policy',
+          privacyText: "Read our privacy policy to learn about Seçiver's data storage, privacy, and advertising practices.",
+          privacyLink: 'View Privacy Policy →',
+          copyright: '© 2026 Seçiver. All rights reserved.',
+          footerContact: 'Contact',
+          footerInstagram: 'Instagram',
+          footerPrivacy: 'Privacy Policy'
+        }
+      };
+
+      const languageButtons = document.querySelectorAll('[data-language]');
+      const description = document.querySelector('meta[name="description"]');
+
+      const getInitialLanguage = () => {
+        let savedLanguage = null;
+        try {
+          savedLanguage = localStorage.getItem(storageKey);
+        } catch (_) {
+          // Browser storage can be unavailable in private or restricted contexts.
+        }
+
+        if (savedLanguage === 'tr' || savedLanguage === 'en') {
+          return savedLanguage;
+        }
+
+        return (navigator.language || 'en').toLowerCase().startsWith('tr') ? 'tr' : 'en';
+      };
+
+      const setLanguage = (language, shouldPersist = true) => {
+        const dictionary = translations[language];
+        if (!dictionary) {
+          return;
+        }
+
+        document.documentElement.lang = language;
+        document.title = dictionary.pageTitle;
+        description.content = dictionary.pageDescription;
+
+        document.querySelectorAll('[data-i18n]').forEach((element) => {
+          const translation = dictionary[element.dataset.i18n];
+          if (translation) {
+            element.textContent = translation;
+          }
+        });
+
+        document.querySelectorAll('[data-i18n-aria-label]').forEach((element) => {
+          const translation = dictionary[element.dataset.i18nAriaLabel];
+          if (translation) {
+            element.setAttribute('aria-label', translation);
+          }
+        });
+
+        languageButtons.forEach((button) => {
+          const isActive = button.dataset.language === language;
+          button.classList.toggle('is-active', isActive);
+          button.setAttribute('aria-pressed', String(isActive));
+        });
+
+        if (shouldPersist) {
+          try {
+            localStorage.setItem(storageKey, language);
+          } catch (_) {
+            // Keep the current session usable when browser storage is unavailable.
+          }
+        }
+      };
+
+      languageButtons.forEach((button) => {
+        button.addEventListener('click', () => setLanguage(button.dataset.language));
+      });
+
+      setLanguage(getInitialLanguage(), false);
+    })();
+  </script>
 </body>
 </html>
